@@ -1,0 +1,198 @@
+<script type="text/javascript">
+    var adUnit_Location = '';
+    var path = window.location.pathname;
+    console.log("URL Path:", path);
+  
+    if (path.includes('/home')) {
+      adUnit_Location = '/7542/r7home/home';
+    } else if (path.includes('/esportes')) {
+      adUnit_Location = '/7542/r7esportes/home';
+    } else if (path.includes('/entretenimento')) {
+      adUnit_Location = '/7542/r7entretenimento/home';
+    } else if (path.includes('/noticias')) {
+      adUnit_Location = '/7542/r7noticias/home';
+    } else if (path.includes('/a-fazenda-')) {
+      adUnit_Location = '/7542/recordtv/afazenda';
+    } else if (path.includes('/mitoouverdadeLPWords')) {
+      adUnit_Location = 'parceiros/overplay';
+    }
+  
+    console.log("Ad Unit Location:", adUnit_Location);
+  
+    var googleFormats = [];
+    var isMobile /* = {{Mobile}};*/
+  
+    if (!isMobile) {
+      googleFormats = [
+        [[[970, 250], [728, 90]], adUnit_Location, 'header', [{
+          bids: [
+            { bidder: 'rubicon', params: { accountId: 15284, siteId: 181560, zoneId: 885996 } },
+            { bidder: 'smartadserver', params: { domain: 'https://prg.smartadserver.com', networkId: '-', siteId: 297790, pageId: 1092054, formatId: 78788 } }//Unico que muda formatId
+          ]
+        }]],
+        [[[300, 250]], adUnit_Location, 'meio', [{
+          bids: [
+            { bidder: 'rubicon', params: { accountId: 15284, siteId: 181560, zoneId: 885996 } },
+            { bidder: 'smartadserver', params: { domain: 'https://prg.smartadserver.com', networkId: '-', siteId: 297790, pageId: 1092054, formatId: 78786 } }
+          ]
+        }]],
+        [[[300, 250]], adUnit_Location, 'footer', [{
+          bids: [
+            { bidder: 'rubicon', params: { accountId: 15284, siteId: 181560, zoneId: 885996 } },
+            { bidder: 'smartadserver', params: { domain: 'https://prg.smartadserver.com', networkId: '-', siteId: 297790, pageId: 1092054, formatId: 78786 } }
+          ]
+        }]],
+        [[[300, 600], [300, 250]], adUnit_Location, 'sticky', [{
+          bids: [
+            { bidder: 'rubicon', params: { accountId: 15284, siteId: 181560, zoneId: 885996 } },
+            { bidder: 'smartadserver', params: { domain: 'https://prg.smartadserver.com', networkId: '-', siteId: 297790, pageId: 1092054, formatId: 78787 } }
+          ]
+        }]]
+      ];
+    } else {
+      googleFormats = [
+        [[[320, 100], [300, 100], [300, 50], [320, 50]], adUnit_Location, 'header', [{
+          bids: [
+            { bidder: 'rubicon', params: { accountId: 15284, siteId: 181560, zoneId: 885996 } },
+            { bidder: 'smartadserver', params: { domain: 'https://prg.smartadserver.com', networkId: '-', siteId: 297790, pageId: 1092054, formatId: 78788 } }
+          ]
+        }]],
+        [[[320, 50]], adUnit_Location, 'meio', [{
+          bids: [
+            { bidder: 'rubicon', params: { accountId: 15284, siteId: 181560, zoneId: 885996 } },
+            { bidder: 'smartadserver', params: { domain: 'https://prg.smartadserver.com', networkId: '-', siteId: 297790, pageId: 1092054, formatId: 78786 } }
+          ]
+        }]],
+        [[[320, 50]], adUnit_Location, 'footer', [{
+          bids: [
+            { bidder: 'rubicon', params: { accountId: 15284, siteId: 181560, zoneId: 885996 } },
+            { bidder: 'smartadserver', params: { domain: 'https://prg.smartadserver.com', networkId: '-', siteId: 297790, pageId: 1092054, formatId: 78786 } }
+          ]
+        }]],
+        [[[300, 250]], adUnit_Location, 'sticky', [{
+          bids: [
+            { bidder: 'rubicon', params: { accountId: 15284, siteId: 181560, zoneId: 885996 } },
+            { bidder: 'smartadserver', params: { domain: 'https://prg.smartadserver.com', networkId: '-', siteId: 297790, pageId: 1092054, formatId: 78787 } }
+          ]
+        }]]
+      ];
+    }
+  
+    var googleAccount = "123456789",
+        googletag = googletag || {},
+        googleFormatsTemp = [],
+        PREBID_TIMEOUT = 3000,
+        pbjs = pbjs || {},
+        adUnits = [];
+    
+    googletag.cmd = googletag.cmd || [];
+    pbjs.que = pbjs.que || [];
+    pbjs.que.push(function () {
+      pbjs.setConfig({
+        priceGranularity: {
+          "buckets": [{ "precision": 2, "min": 0, "max": 50, "increment": 0.01 }]
+        },
+        enableTIDs: true,
+        "currency": {
+          "adServerCurrency": "USD",
+          "granularityMultiplier": 1,
+          "conversionRateFile": null,
+          "defaultRates": { }
+        }
+      });
+    });
+  
+    for (var i = 0; i < googleFormats.length; i++) {
+      var element = document.getElementById(googleFormats[i][2]);
+      console.log("Elemento:", element);
+  
+      if (element !== null) {
+        if (googleFormats[i][3] !== undefined) {
+          adUnits.push({
+            code: googleFormats[i][2],
+            mediaTypes: { banner: { sizes: googleFormats[i][0].filter(function (s) { return s != "fluid"; }) } },
+            bids: googleFormats[i][3][0].bids
+          });
+          googleFormats[i][3].shift();
+        }
+        googleFormatsTemp.push(googleFormats[i]);
+      }
+    }
+  
+    if (googleFormatsTemp.length > 0) {
+      googleFormats = googleFormatsTemp;
+      googleFormatsTemp = [];
+    } else {
+      googleFormats = [];
+      googleFormatsTemp = [];
+    }
+  </script>
+  
+  <script type="text/javascript">
+    var googleBanner = {};
+    googletag.cmd.push(function () {
+      googletag.pubads().disableInitialLoad();
+      var googleAdUnit = '';
+      for (var i = 0; i < googleFormats.length; i++) {
+        googleAdUnit = "/" + googleAccount + "/" + googleFormats[i][1];
+        googleBanner[googleFormats[i][2]] = googletag.defineSlot(googleAdUnit, googleFormats[i][0], googleFormats[i][2])
+          .setTargeting("pos", googleFormats[i][2])
+          .addService(googletag.pubads());
+        console.log("ID de slot definido:", googleFormats[i][2]);
+      }
+      googletag.pubads().enableLazyLoad({
+        fetchMarginPercent: 100,
+        renderMarginPercent: 50,
+        mobileScaling: 1,
+      });
+      console.log("LazyLoading ativada com configurações:", {
+        fetchMarginPercent: 100,
+        renderMarginPercent: 50,
+        mobileScaling: 1
+      });
+    });
+  
+    googletag.cmd.push(function () {
+      pbjs.que.push(function () {
+        pbjs.addAdUnits(adUnits);
+        pbjs.requestBids({
+          bidsBackHandler: initAdserver,
+          timeout: PREBID_TIMEOUT
+        });
+      });
+  
+      function initAdserver() {
+        if (pbjs.initAdserverSet) return;
+        pbjs.initAdserverSet = true;
+        googletag.cmd.push(function () {
+          pbjs.que.push(function () {
+            pbjs.setTargetingForGPTAsync();
+            googletag.pubads().refresh();
+          });
+        });
+      }
+  
+      setTimeout(function () {
+        initAdserver();
+      }, 5000);
+  
+      var SECONDS_TO_WAIT_AFTER_VIEWABILITY = 30;
+      googletag.pubads().addEventListener('impressionViewable', function (event) {
+        var slot = event.slot;
+        console.log("Espaço de anúncio visível:", slot.getSlotElementId());
+        setTimeout(function () {
+          googletag.pubads().refresh([slot]);
+          slot.setTargeting("keyword", "refreshativo");
+          console.log("Espaço de anúncio atualizado:", slot.getSlotElementId());
+        }, SECONDS_TO_WAIT_AFTER_VIEWABILITY * 1000);
+      });
+      googletag.pubads().setCentering(true);
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
+      for (var i = 0; i < googleFormats.length; i++) {
+        googletag.display(googleFormats[i][2]);
+        console.log("ID do espaço de anúncio exibido:", googleFormats[i][2]);
+      }
+    });
+  </script>
+  
