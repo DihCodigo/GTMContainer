@@ -7,37 +7,37 @@
   var googleFormats = [];
   if (/*{{Mobile}} ==*/ false) {
     googleFormats = [
-    [[[970, 250]], 'adUnit_home', 'anuncio_header', [{
+    [[[970, 250]], 'adUnit', 'anuncio_header', [{
         bids: [
-            { bidder: 'rubicon', params: { accountId: 10605, siteId: 552458, zoneId: 3460962 } },
+            { bidder: 'rubicon', params: { accountId: 123, siteId: 123, zoneId: 123 } },
             { bidder: 'appnexus', params: { placementId: 33135801 } }
         ]
     }]],
-    [[[300, 250]], 'adUnit_home', 'anuncio_meio', [{
+    [[[300, 250]], 'adUnit', 'anuncio_meio', [{
         bids: [
-            { bidder: 'rubicon', params: { accountId: 10605, siteId: 552458, zoneId: 3460962 } },
-            { bidder: 'seedtag', params: { adUnitId: '33043412', publisherId: '8765-2171-01', placement: 'inBanner' } }
+            { bidder: 'rubicon', params: { accountId: 123, siteId: 123, zoneId: 123 } },
+            { bidder: 'seedtag', params: { adUnitId: '123', publisherId: '1-2-3', placement: 'inBanner' } }
         ]
     }]]
     ]
   }
   if (/*{{Mobile}} ==*/ true) {
     googleFormats = [
-    [[[320, 100], [300, 100], [300, 50], [320, 50]], 'adUnit_home', 'anuncio_header', [{
+    [[[320, 100], [300, 100], [300, 50], [320, 50]], 'adUnit', 'anuncio_header', [{
         bids: [
-            { bidder: 'rubicon', params: { accountId: 10605, siteId: 552458, zoneId: 3460962 } },
-            { bidder: 'seedtag', params: { adUnitId: '33043412', publisherId: '8765-2171-01', placement: 'inBanner' } }
+            { bidder: 'rubicon', params: { accountId: 123, siteId: 123, zoneId: 123 } },
+            { bidder: 'seedtag', params: { adUnitId: '123', publisherId: '1-2-3', placement: 'inBanner' } }
         ]
     }]],
-    [[[300, 250], [320, 100], [300, 100], [300, 50], [320, 50]], 'adUnit_home', 'anuncio_meio', [{
+    [[[300, 250], [320, 100], [300, 100], [300, 50], [320, 50]], 'adUnit', 'anuncio_meio', [{
         bids: [
-            { bidder: 'rubicon', params: { accountId: 10605, siteId: 552458, zoneId: 3460962 } },
-            { bidder: 'seedtag', params: { adUnitId: '33137593', publisherId: '8765-2171-01', placement: 'inBanner' } }
+            { bidder: 'rubicon', params: { accountId: 123, siteId: 123, zoneId: 123 } },
+            { bidder: 'seedtag', params: { adUnitId: '123', publisherId: '1-2-3', placement: 'inBanner' } }
         ]
     }]]
     ]
   }
-    var googleAccount = "123456789",
+    var googleAccount = "",
         googletag = googletag || {},
         googleFormatsTemp = [],
         PREBID_TIMEOUT = 3000,

@@ -1,0 +1,30 @@
+<script async type="text/javascript" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<div id="IDPosition" style="min-width: 300px; min-height: 50px">
+    <script>
+        var sz = [[320, 50]];
+        if (window.innerWidth > 980) {
+            sz = [[970, 250]];
+        }
+        if (window.innerWidth > 768 && window.innerWidth < 980) {
+            sz = [[728, 90]];
+        }
+        googletag.cmd.push(function () {
+            window.googletag = window.googletag || { cmd: [] };
+            googletag.cmd.push(function () {
+                googletag
+                    .defineSlot(
+                        "AdUnit",
+                        sz,
+                        "IDPosition"
+                    )
+                    .addService(googletag.pubads())
+                    .setTargeting("pos", "Billboard");
+                googletag.pubads().enableSingleRequest();
+                googletag.pubads().setCentering(true);
+                googletag.enableServices();
+            });
+            googletag.display("IDPosition");
+        });
+
+    </script>
+</div>
